@@ -1,4 +1,0 @@
-config:
-  aws:region: us-east-1
-  aws:skipMetadataApiCheck: "false"
-  talos-pulumi-ts3:org: smpnet74

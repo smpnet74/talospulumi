@@ -1,0 +1,11 @@
+aws elbv2 register-targets \
+--region us-east-1 \
+--target-group-arn arn:aws:elasticloadbalancing:us-east-1:941497602196:targetgroup/talos-targetgroup/357cb84790de6d47 \
+--targets Id=10.0.110.64  Id=10.0.114.65  Id=10.0.23.59
+
+aws elbv2 create-listener \
+    --region us-east-1 \
+    --load-balancer-arn arn:aws:elasticloadbalancing:us-east-1:941497602196:loadbalancer/net/talos-lb/65a7d7c401f98f02 \
+    --protocol TCP \
+    --port 443 \
+    --default-actions Type=forward,TargetGroupArn=aws:elasticloadbalancing:us-east-1:941497602196:targetgroup/talos-targetgroup/357cb84790de6d47
