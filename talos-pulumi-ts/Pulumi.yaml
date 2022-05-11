@@ -1,0 +1,3 @@
+name: talos-pulumi-ts
+runtime: nodejs
+description: Prep AWS and run Talos
