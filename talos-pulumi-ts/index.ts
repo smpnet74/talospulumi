@@ -13,13 +13,13 @@ const talos_sg = new aws.ec2.SecurityGroup("talos-sg", {
     }],
     ingress: [
         {
-            cidrBlocks: ["73.168.237.61/32"],
+            cidrBlocks: ["10.0.0.0/16"],
             fromPort: 6443,
             protocol: "tcp",
             toPort: 6443,
         },
         {
-            cidrBlocks: ["73.168.237.61/32"],
+            cidrBlocks: ["10.0.0.0/16"],
             fromPort: 50000,
             protocol: "tcp",
             toPort: 50001,
@@ -45,8 +45,6 @@ const talos_lb = new aws.alb.LoadBalancer("talos-lb", {
     name: "talos-lb",
     subnets: ["subnet-0489e5b67a8a23a6f"],
 }, );
-
-
 
 export const LoadbalancerDNS = talos_lb.dnsName
 export const LoadbalancerARN = talos_lb.arn
