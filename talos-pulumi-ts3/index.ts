@@ -40,6 +40,7 @@ for (let i = 0; i < 3; i++) {
         ami: "ami-0c213d04c7306d550",
         subnetId: "subnet-0489e5b67a8a23a6f",
         userData: interpolate `${workerUD.stdout}`,
+        associatePublicIpAddress: true,
         tags: { "Name": `talos-worker-${i}` },
     },
     {ignoreChanges: ["securityGroups"]});
