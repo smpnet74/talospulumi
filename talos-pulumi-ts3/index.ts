@@ -75,7 +75,9 @@ const lbtarget = new aws.alb.TargetGroup("lbtarget", {
     name: "talos-targetgroup"
 })
 
-export const targetgrouparn = lbtarget.arn
-export const cp1 = serverips[0]
-export const cp2 = serverips[1]
-export const cp3 = serverips[2]
+for (let i = 0; i < 3; i++){
+    const tgatt = new aws.lb.TargetGroupAttachment(`tgatt-${i}`, {
+        targetGroupArn: lbtarget.arn,
+        targetId: serverips.pop()
+    })
+}
